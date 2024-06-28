@@ -14,7 +14,7 @@ using namespace std;
 #define debug(x) cerr << #x << " = " << x << endl
 
 const int mod = 998244353;
-const int maxn = 5e3 + 5;
+const int maxn = 2e5 + 5;
 
 int n;
 vector<int> adj[maxn];
@@ -61,7 +61,7 @@ void solve() {
 
     adj[u].pb(v);
     adj[v].pb(u);
-  } 
+  }
 
   dfs(1, -1);
 
