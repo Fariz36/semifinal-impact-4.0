@@ -1,60 +1,32 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define int long long
-#define ii pair<int, int>
-#define fi first
-#define se second
-#define pb push_back
-#define all(x) x.begin(), x.end()
-#define rall(x) x.rbegin(), x.rend()
-#define rep(i, a, b) for (int i = a; i < b; i++)
-#define per(i, a, b) for (int i = a; i >= b; i--)
-//#define endl '\n'
-#define debug(x) cerr << #x << " = " << x << endl
+#define ll long long
+#define ld long double
 
-const int mod = 1e9 + 7;
-const int maxn = 1e5 + 5;
+void solve(){
+    int N; cin >> N;
 
-int ans = 0;
-void solve() {
-  int n;
-  cin >> n;
+    int G = 0;
+    for(int i = 1; i <= N; ++i){
+        int L, R; cin >> L >> R;
 
-  vector<int> v;
-  for (int i = 1; i <= n; i++) {
-    int l, r;
-    cin >> l >> r;
-
-    if (l != r) {
-      cout << "NO" << endl;
-      return;
+        for(int j = L; j <= R && G != 1; ++j){
+            G = __gcd(G, j);
+        }
     }
-    v.push_back(l);
-  }
 
-  int g = 0;
-  for (auto i : v) {
-    g = __gcd(g, i);
-  }
-  if (g == 1) {
-    cout << "NO" << endl;
-    return;
-  }
-  else {
-    cout << "YES" << endl;
-  }
+    cout << (G == 1 ? "TIDAK" : "YA") << "\n";
 }
 
-signed main() {
-  ios_base::sync_with_stdio(0);
-  cin.tie(0);
-  cout.tie(0);
+int main(){
+    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
-  int tc = 1;
-  //cin >> tc;
+    int tc = 1; //cin >> tc;
 
-  while (tc--) {
-    solve();
-  }
+    while(tc--){
+        solve();
+    }
+
+    return 0;
 }
